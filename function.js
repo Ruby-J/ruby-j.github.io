@@ -127,9 +127,9 @@
         
         load();
         
-	</script>
 	
-	<script type="text/javascript"> /* Menu navigation */
+
+	/* Menu navigation */
 	
 	    var page1 = document.getElementById("page1");
 	    var page2 = document.getElementById("page2");
