@@ -1,0 +1,214 @@
+body {
+	        background: #222;
+	        color: #ADC;
+			font-family: "Rubik", "Segoe UI", "Dejavu sans", Arial;
+			font-size: 1.0em;
+			margin: 0 auto;
+	    }
+		
+		button {
+	        background: linear-gradient(to bottom right, #B8E, #80C);
+	        border-radius: 0.5em;
+	        padding: 0.5em;
+	        font-family: "Itim", "Corbel", cursive;
+	        font-size: 1.2em;
+	    }
+	    
+	    .everything {
+	        display: grid;
+	        max-width: 1024px;
+	        margin: 0 auto;
+	        /*grid-template-rows: 20% 50%;*/
+	    }
+	    
+	    .menu {
+	        background: linear-gradient(#696, #222);
+	        display: grid;
+	        width: 100%;
+	        margin: 0 auto;
+	        grid-template-columns: 25% 25% 25% 25%;
+	    }
+	    
+	    .menu-item {
+	        color: #000;
+            border: 0.2em outset rgba(100, 200, 0, 0.5);
+            border-radius: 0.5em;
+            padding: 0.2em;
+            font-size: 1.1em;
+            font-weight: bold;
+            font-family: "Baloo", cursive;
+            text-align: center;
+            vertical-align: middle;
+            text-transform: uppercase;
+            -webkit-text-stroke: 0.025em #000;
+            text-shadow:
+                0.1em 0.1em 0.1em #000,
+                -0.025em -0.025em 0 #000,  
+                0.025em 0.025em 0 #000,
+                -0.025em -0.025em 0 #000,
+                0.025em 0.025em 0 #000;
+        }
+        
+        .menu-item:hover {
+            border: 0.2em inset rgba(180, 0, 220, 0.5);
+            background-image: radial-gradient(#363, #696, #9A9);
+            transition: 0.5s;
+        }
+        
+        #item1, #item2, #item3, #item4 {
+            all: inherit;
+            background: none;
+            border: none;
+        }
+        
+        #item1 {
+            color: #F69;
+        }
+        #item1:hover {
+            color: #F00;
+        }
+        #item2 {
+            color: #9F6;
+        }
+        #item2:hover {
+            color: #0FC;
+        }
+        #item3 {
+            color: #66F;
+        }
+        #item3:hover {
+            color: #03F;
+        }
+        #item4 {
+            color: #F96;
+        }
+        #item4:hover {
+            color: #FC0;
+        }
+	    
+	.container {
+	    margin: 0.5em;
+	    display: block;
+	    height: 60vh;
+	}
+		
+	#page1 {
+	        display: block;
+	    }
+	    
+	    #page2, #page3, #page4 {
+	        display: none;
+	    }
+	    
+	    #love-bar {
+	        width: 1%;
+	        height: 2em;
+	        border-radius: 0.3em;
+	        background: repeating-linear-gradient(135deg,transparent, transparent 0.5em, #D7A 0.5em, #D7A 1em), linear-gradient(135deg, #FAC, #F00, #FAC);
+	        background-size: 400% 400%;
+	        background-position-x:0%;
+	        animation: barStripes 14s linear infinite;
+	    }
+	    
+        #arrow-down {
+    		width: 0;
+    		height: 0;
+    		border-left: 1.0em solid transparent;
+    		border-right: 1.0em solid transparent;
+    		border-top: 1.0em dashed #FF0;
+    		border-color: linear-gradient(to bottom, #FF0, #990);
+    		position: absolute;
+    		display: block;
+    		bottom: 1em;
+		    right: 1em;
+		    animation: arrowDown 1s linear infinite;
+		}
+		
+		#arrow-down-shade {
+    		width: 0;
+    		height: 0;
+    		border-left: 1.0em solid transparent;
+    		border-right: 1.0em solid transparent;
+    		border-top: 1.5em solid #990;
+    		position: absolute;
+    		display: block;
+    		bottom: 1em;
+		    right: 1em;
+		    animation: arrowDown 1s linear infinite;
+		    filter: drop-shadow(0px 10px 3px rgba(0,0,0,1));
+		}
+	    
+	    
+	    
+	    .text {
+		    position: relative;
+		    bottom: 0;
+		    left: 0;
+	    }
+		
+		#textbox {
+			font-size: 1.4em;
+			font-family: "Share Tech Mono", monospace;
+			color: #0F0;
+			letter-spacing: .15em;
+			background: linear-gradient(to right, #333, #464);
+			margin: 0.5em;
+			padding: 0.5em;
+			min-height: 5em;
+			border-radius: 0.5em;
+			border: 0.2em outset rgba(100, 200, 0, 0.5);
+			box-shadow: 0.5em 0.5em 0.3em #111;
+			-webkit-text-stroke: 0.025em #000;
+            text-shadow:
+                0.15em 0.15em 0.1em #000,
+                -0.1em -0.1em 0.1em #333,  
+                0.05em 0.05em 0.1em #222,
+                -0.05em -0.05em 0.1em #222,
+                0.1em 0.1em 0.1em #333;
+			/*filter: alpha(opacity=100);*/
+            opacity: 0.0;
+		}
+
+		#caret {
+			border-right: 0.5em solid;
+			animation: caret 1s steps(1) infinite;
+		}
+
+		@keyframes caret { /* blinking effect */
+			50% { border-color: transparent };
+		}
+		
+		@keyframes arrowDown {
+          0%, 100% {
+            bottom: 1.5em;
+            transform: rotateY(0deg);
+          }
+          50% {
+            bottom: 1em;
+            transform: rotateY(180deg);
+          }
+        }
+        
+        @keyframes barStripes {
+            0%{
+        		background-position-x:130%;
+        	}
+        	50% {
+        		background-position-x:0%;
+        	}
+        	100% {
+        		background-position-x:-130%;
+        	}
+        }
+		
+		
+		
+		@media screen and (max-width: 568px){
+		    .menu-item {
+                font-size: 0.8em;
+		    }
+		    
+		    #textbox {
+			 font-size: 1.1em;
+		    }
+		}
