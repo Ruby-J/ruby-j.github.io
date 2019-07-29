@@ -1,0 +1,30 @@
+<html>
+
+	<head>
+	
+	    <title>Just testing...</title>
+	    <link rel="shortcut icon" type="image/x-icon" href={Favicon} />
+	    <base target="_self">
+		<!-- <link rel="stylesheet" type="text/css" href="interface.css" /> -->
+		
+        <link href="https://fonts.googleapis.com/css?family=Baloo|Itim|Share+Tech+Mono|Rubik" rel="stylesheet">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+	</head>
+	
+	<style>
+  
+  body {
+	        background: #222;
+	        color: #ADC;
+			font-family: "Rubik", "Segoe UI", "Dejavu sans", Arial;
+			font-size: 1.0em;
+			margin: 0 auto;
+	    }
+ <style>
+ 
+ <body>
+Oh, hey
+ </body>
+ </html>
