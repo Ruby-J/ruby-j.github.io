@@ -22,12 +22,98 @@
 			font-size: 1.0em;
 			margin: 0 auto;
 	    }
+		
+		button {
+	        background: linear-gradient(to bottom right, #B8E, #80C);
+	        border-radius: 0.5em;
+	        padding: 0.5em;
+	        font-family: "Itim", "Corbel", cursive;
+	        font-size: 1.2em;
+	    }
+	    
+	    .everything {
+	        display: grid;
+	        max-width: 1024px;
+	        margin: 0 auto;
+	        /*grid-template-rows: 20% 50%;*/
+	    }
+	    
+	    .menu {
+	        background: linear-gradient(#696, #222);
+	        display: grid;
+	        width: 100%;
+	        margin: 0 auto;
+	        grid-template-columns: 25% 25% 25% 25%;
+	    }
+	    
+	    .menu-item {
+	        color: #000;
+            border: 0.2em outset rgba(100, 200, 0, 0.5);
+            border-radius: 0.5em;
+            padding: 0.2em;
+            font-size: 1.1em;
+            font-weight: bold;
+            font-family: "Baloo", cursive;
+            text-align: center;
+            vertical-align: middle;
+            text-transform: uppercase;
+            -webkit-text-stroke: 0.025em #000;
+            text-shadow:
+                0.1em 0.1em 0.1em #000,
+                -0.025em -0.025em 0 #000,  
+                0.025em 0.025em 0 #000,
+                -0.025em -0.025em 0 #000,
+                0.025em 0.025em 0 #000;
+        }
+        
+        .menu-item:hover {
+            border: 0.2em inset rgba(180, 0, 220, 0.5);
+            background-image: radial-gradient(#363, #696, #9A9);
+            transition: 0.5s;
+        }
+        
+        #item1, #item2, #item3, #item4 {
+            all: inherit;
+            background: none;
+            border: none;
+        }
+        
+        #item1 {
+            color: #F69;
+        }
+        #item1:hover {
+            color: #F00;
+        }
+        #item2 {
+            color: #9F6;
+        }
+        #item2:hover {
+            color: #0FC;
+        }
+        #item3 {
+            color: #66F;
+        }
+        #item3:hover {
+            color: #03F;
+        }
+        #item4 {
+            color: #F96;
+        }
+        #item4:hover {
+            color: #FC0;
+        }
+	    
+	.container {
+	    margin: 0.5em;
+	    display: block;
+	    height: 60vh;
+	}
 	
 	</style>
 	
 	<body>
 	
-		Ok! :)
+		Does it work? :(
 	
 	<div class="everything">
 	
