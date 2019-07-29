@@ -50,44 +50,49 @@ a:hover {
 	z-index: 14;
 }
     
-    #downarrow, #downarrow2 {
-        display: none;
-    }
-    
-    .dropdown:hover {
-        background-color:rgba(100, 0, 100, 0.5);
-    }
-    
-    .dropdown:hover .dropdown-content, .dropdown:hover #downarrow, .dropdown:hover #downarrow2 {
-        display: block;
-    }
-    
-    .dropdown:hover #uparrow, .dropdown:hover #uparrow2 {
-        display: none;
-    }
-    
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      margin: 0.5em 0.5em;
-      background-color: rgba(160, 20, 180, 0.70);
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 10;
-      border-radius: 0.5em;
-    }
-    
-    .dropdown-content a {
-      color: #FFF;
-      display: block;
-      padding: 0.7em 1em;
-      float: none;
-    }
-    
-    .dropdown-content a:nth-child(even) {
-        background-color:rgba(160, 0, 140, 0.70);
-    }
-    
-    .dropdown-content a:hover {
-        background-color:rgba(240, 180, 220, 0.70);
-        border-radius: 0.5em;
-    }
+#downarrow, #downarrow2 {
+	display: none;
+}
+
+.dropdown:hover {
+	background-color:rgba(100, 0, 100, 0.5);
+}
+
+.dropdown:hover .dropdown-content, .dropdown:hover #downarrow, .dropdown:hover #downarrow2 {
+	display: block;
+}
+
+.dropdown:hover #uparrow, .dropdown:hover #uparrow2 {
+	display: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  margin: 0.5em 0.5em;
+  background-color: rgba(160, 20, 180, 0.70);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+  border-radius: 0.5em;
+}
+
+.dropdown-content a {
+  color: #FFF;
+  display: block;
+  padding: 0.7em 1em;
+  float: none;
+}
+
+.dropdown-content a:nth-child(even) {
+	background-color:rgba(160, 0, 140, 0.70);
+}
+
+.dropdown-content a:hover {
+	background-color:rgba(240, 180, 220, 0.70);
+	border-radius: 0.5em;
+}
+
+.current-page {
+    cursor: not-allowed;
+    pointer-events: none;
+}
