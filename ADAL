@@ -1,0 +1,666 @@
+<html>
+
+	<head>
+	
+	    <title>Test Game</title>
+	    <link rel="shortcut icon" type="image/x-icon" href={Favicon} />
+	    <base target="_self">
+		<!-- <link rel="stylesheet" type="text/css" href="interface.css" /> -->
+		
+        <link href="https://fonts.googleapis.com/css?family=Baloo|Itim|Share+Tech+Mono|Rubik" rel="stylesheet">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+	</head>
+	
+	<style>
+	
+	    .iframe, .iframe-controls-container.iframe-controls-container--unified, .tmblr-iframe--unified-controls, .buttons-container, .app-cta-button, .tmblr-iframe, .tmblr-iframe--app-cta-button, .tmblr-iframe--loaded {
+            display: none!important;  height: 0px!important;
+        }
+	    
+	    body {
+	        background: #222;
+	        color: #ADC;
+			font-family: "Rubik", "Segoe UI", "Dejavu sans", Arial;
+			font-size: 1.0em;
+			margin: 0 auto;
+	    }
+	    
+	    button {
+	        background: linear-gradient(to bottom right, #B8E, #80C);
+	        border-radius: 0.5em;
+	        padding: 0.5em;
+	        font-family: "Itim", "Corbel", cursive;
+	        font-size: 1.2em;
+	    }
+	    
+	    .everything {
+	        display: grid;
+	        max-width: 1024px;
+	        margin: 0 auto;
+	        /*grid-template-rows: 20% 50%;*/
+	    }
+	    
+	    .menu {
+	        background: linear-gradient(#696, #222);
+	        display: grid;
+	        width: 100%;
+	        margin: 0 auto;
+	        grid-template-columns: 25% 25% 25% 25%;
+	    }
+	    
+	    .menu-item {
+	        color: #000;
+            border: 0.2em outset rgba(100, 200, 0, 0.5);
+            border-radius: 0.5em;
+            padding: 0.2em;
+            font-size: 1.1em;
+            font-weight: bold;
+            font-family: "Baloo", cursive;
+            text-align: center;
+            vertical-align: middle;
+            text-transform: uppercase;
+            -webkit-text-stroke: 0.025em #000;
+            text-shadow:
+                0.1em 0.1em 0.1em #000,
+                -0.025em -0.025em 0 #000,  
+                0.025em 0.025em 0 #000,
+                -0.025em -0.025em 0 #000,
+                0.025em 0.025em 0 #000;
+        }
+        
+        .menu-item:hover {
+            border: 0.2em inset rgba(180, 0, 220, 0.5);
+            background-image: radial-gradient(#363, #696, #9A9);
+            transition: 0.5s;
+        }
+        
+        #item1, #item2, #item3, #item4 {
+            all: inherit;
+            background: none;
+            border: none;
+        }
+        
+        #item1 {
+            color: #F69;
+        }
+        #item1:hover {
+            color: #F00;
+        }
+        #item2 {
+            color: #9F6;
+        }
+        #item2:hover {
+            color: #0FC;
+        }
+        #item3 {
+            color: #66F;
+        }
+        #item3:hover {
+            color: #03F;
+        }
+        #item4 {
+            color: #F96;
+        }
+        #item4:hover {
+            color: #FC0;
+        }
+	    
+	    .container {
+	        margin: 0.5em;
+	        display: block;
+	        height: 60vh;
+	    }
+	    
+	    #page1 {
+	        display: block;
+	    }
+	    
+	    #page2, #page3, #page4 {
+	        display: none;
+	    }
+	    
+	    #love-bar {
+	        width: 1%;
+	        height: 2em;
+	        border-radius: 0.3em;
+	        background: repeating-linear-gradient(135deg,transparent, transparent 0.5em, #D7A 0.5em, #D7A 1em), linear-gradient(135deg, #FAC, #F00, #FAC);
+	        background-size: 400% 400%;
+	        background-position-x:0%;
+	        animation: barStripes 14s linear infinite;
+	    }
+	    
+        #arrow-down {
+    		width: 0;
+    		height: 0;
+    		border-left: 1.0em solid transparent;
+    		border-right: 1.0em solid transparent;
+    		border-top: 1.0em dashed #FF0;
+    		border-color: linear-gradient(to bottom, #FF0, #990);
+    		position: absolute;
+    		display: block;
+    		bottom: 1em;
+		    right: 1em;
+		    animation: arrowDown 1s linear infinite;
+		}
+		
+		#arrow-down-shade {
+    		width: 0;
+    		height: 0;
+    		border-left: 1.0em solid transparent;
+    		border-right: 1.0em solid transparent;
+    		border-top: 1.5em solid #990;
+    		position: absolute;
+    		display: block;
+    		bottom: 1em;
+		    right: 1em;
+		    animation: arrowDown 1s linear infinite;
+		    filter: drop-shadow(0px 10px 3px rgba(0,0,0,1));
+		}
+	    
+	    
+	    
+	    .text {
+		    position: relative;
+		    bottom: 0;
+		    left: 0;
+	    }
+		
+		#textbox {
+			font-size: 1.4em;
+			font-family: "Share Tech Mono", monospace;
+			color: #0F0;
+			letter-spacing: .15em;
+			background: linear-gradient(to right, #333, #464);
+			margin: 0.5em;
+			padding: 0.5em;
+			min-height: 5em;
+			border-radius: 0.5em;
+			border: 0.2em outset rgba(100, 200, 0, 0.5);
+			box-shadow: 0.5em 0.5em 0.3em #111;
+			-webkit-text-stroke: 0.025em #000;
+            text-shadow:
+                0.15em 0.15em 0.1em #000,
+                -0.1em -0.1em 0.1em #333,  
+                0.05em 0.05em 0.1em #222,
+                -0.05em -0.05em 0.1em #222,
+                0.1em 0.1em 0.1em #333;
+			/*filter: alpha(opacity=100);*/
+            opacity: 0.0;
+		}
+
+		#caret {
+			border-right: 0.5em solid;
+			animation: caret 1s steps(1) infinite;
+		}
+
+		@keyframes caret { /* blinking effect */
+			50% { border-color: transparent };
+		}
+		
+		@keyframes arrowDown {
+          0%, 100% {
+            bottom: 1.5em;
+            transform: rotateY(0deg);
+          }
+          50% {
+            bottom: 1em;
+            transform: rotateY(180deg);
+          }
+        }
+        
+        @keyframes barStripes {
+            0%{
+        		background-position-x:130%;
+        	}
+        	50% {
+        		background-position-x:0%;
+        	}
+        	100% {
+        		background-position-x:-130%;
+        	}
+        }
+		
+		
+		
+		@media screen and (max-width: 568px){
+		    .menu-item {
+                font-size: 0.8em;
+		    }
+		    
+		    #textbox {
+			    font-size: 1.1em;
+		    }
+		}
+	    
+	</style>
+	
+	<body>
+	
+	<div class="everything">
+	
+	<div class="menu">
+        <div class="menu-item"> <!-- World / Love -->
+            <div id="item1">♥ World</div>
+        </div>
+        <div class="menu-item"> <!-- Characters / Profiles -->
+            <div id="item2">☺ Profile</div>
+        </div>
+        <div class="menu-item"> <!-- Album -->
+            <div id="item3">🕮 Album</div>
+        </div>
+        <div class="menu-item"> <!-- Settings -->
+            <div id="item4">⚙ Option</div>
+        </div>
+	</div>
+	
+	<div class="container">
+	
+	    <div id="page1">
+    	Love: <span id="love_count">0</span>
+    	<span style="float: right">to next level: <span id="toNextLvl">100</span></span>
+    	<div id="love-bar"></div>
+    	<p>
+    	<button onClick="makeLove(1)">Make Love! x<span id="level">1</span></button>
+    	
+    	<p><p>
+    	Generators: <span id="generators">0</span><br>
+        Cost: <span id="generatorCost">10</span>
+    	<p>
+    	<button id="generatorsButton" onClick="buygenerator()">Buy Me</button>
+    	
+    	<p>
+    	<div id="divHate">Hate: 0</div>
+    	<p>
+    	
+    	</div> <!-- page1 -->
+    	
+    	<div id="page2">
+    	    Profiles
+    	    <p>
+    	    blah blah blah
+    	</div> <!-- page2 -->
+    	
+    	<div id="page3">
+    	    Album
+    	    <p>
+    	    something to do
+    	</div> <!-- page3 -->
+    	
+    	<div id="page4">
+    	    Option
+    	    <p>
+    	    change stuffs
+    	    copyright
+    	</div> <!-- page4 -->
+	
+	</div> <!-- container -->
+	
+	<div class="text">
+    	<div id="textbox">
+    	    Welcome.
+    	</div>
+    	
+    	<div id="arrow-down-shade"></div>
+    	<div id="arrow-down"></div>
+	</div>
+	
+	</div> <!-- everything -->
+	
+	<!-- <script type="text/javascript" src="main.js"></script> -->
+	
+	<script> /* Main functions */
+	    
+	    var love = 0;
+	    
+	    var flag_0001 = 0;
+	    
+	    
+	    
+	    var loveBar = document.getElementById('love-bar');
+	    
+	    var generatorsButton = document.getElementById('generatorsButton');
+	    
+	    
+	    
+	    var indexText = 0; /* var 'i' in the functions */
+	    
+	    
+	    
+	    function makeLove(num) {
+	        if (num == 1) {
+	            love += 1 * level;
+	        }
+	        else {
+	            love += num;
+	        }
+	        document.getElementById("love_count").innerHTML = love.toFixed(1);
+	    }
+	    
+	    var generators = 0;
+	    
+	    var generatorCost;
+	    
+	    function computeGeneratorCost() {
+	        generatorCost = Math.floor(10 * Math.pow(1.1, generators));
+	    }
+	    
+	    computeGeneratorCost();
+	    
+	    var level = 1;
+	    var levelUpLove = 100;
+	    
+	    function computeLevelUpLove() {
+	        levelUpLove = Math.floor (100 * Math.pow (1.5, level));
+	    }
+	    
+	    function updateLevel() {
+	        document.getElementById('level').innerHTML = level;
+	    }
+	    
+	    function buygenerator() {
+	        var generatorCost = Math.floor(10 * Math.pow(1.1,generators));
+	        if(love >= generatorCost) {
+	            generators += 1;
+	            love -= generatorCost;
+	            document.getElementById('generators').innerHTML = generators;
+	            document.getElementById('love_count').innerHTML = love.toFixed(1);
+	        }
+	        var nextCost = Math.floor(10 * Math.pow(1.1,generators));
+	        document.getElementById('generatorCost').innerHTML = nextCost;
+	    }
+	    
+	    function updateLoveBar(love) {
+	        var widthStr = (love * 100 / levelUpLove) + "%";
+	        loveBar.style.width = widthStr;
+	        if (love >= levelUpLove) {
+	            love -= levelUpLove;
+	            level += 1;
+	            updateLevel();
+	            computeLevelUpLove();
+	        }
+	    }
+	    
+	    function checkBuyable() {
+	        computeGeneratorCost();
+	        if (love >= generatorCost) {
+	            generatorsButton.disabled = false;
+	        }
+	        else if (love < generatorCost) {
+	            generatorsButton.disabled = true;
+	        }
+	        
+	    }
+	    
+	    
+	    
+        
+        
+        function save() {
+            var savefile = {
+                love: love,
+                generators: generators,
+                level: level,
+                indexText: indexText,
+                flag_0001: flag_0001};
+            localStorage.setItem("savefile",JSON.stringify(savefile));
+            //ga('send', 'event', 'My Game', 'Save');
+        }
+	    
+	    window.setInterval(function(){
+            makeLove(generators*0.05);
+            updateLoveBar(love);
+            checkBuyable();
+            document.getElementById('toNextLvl').innerHTML = (levelUpLove - love).toFixed(1);
+        }, 100);
+        
+        window.setInterval(function(){
+            save();
+            console.log("Autosaved!");
+        }, 30000); /* 60000 = 60s = 1 min */
+        
+        
+        
+        
+        function load() {
+            var savegame = JSON.parse(localStorage.getItem("savefile"));
+            if (typeof savegame.love !== "undefined") love = savegame.love;
+            if (typeof savegame.generators !== "undefined") generators = savegame.generators;
+            if (typeof savegame.level !== "undefined") level = savegame.level;
+            if (typeof savegame.indexText !== "undefined") indexText = savegame.indexText;
+            if (typeof savegame.flag_0001 !== "undefined") flag_0001 = savegame.flag_0001;
+            
+            computeGeneratorCost();
+            document.getElementById('generators').innerHTML = generators;
+            document.getElementById('generatorCost').innerHTML = generatorCost;
+            computeLevelUpLove();
+            updateLevel();
+        }
+        
+        load();
+        
+	</script>
+	
+	<script type="text/javascript"> /* Menu navigation */
+	
+	    var page1 = document.getElementById("page1");
+	    var page2 = document.getElementById("page2");
+	    var page3 = document.getElementById("page3");
+	    var page4 = document.getElementById("page4");
+	    
+	    /* wont work :/
+	    function checkDisplay() {
+	        if (page1.style.display = "none" && page2.style.display = "none") {
+	            page1.style.display = "block";
+	        }
+	    } */
+	
+        function pageOneClick() {
+           if (page1.style.display = "block") {
+              page1.style.display = "block";
+              page2.style.display = "none";
+              page3.style.display = "none";
+              page4.style.display = "none";
+           }
+           //checkDisplay();
+        }
+        
+        function pageTwoClick() {
+           if (page2.style.display = "none") {
+              page2.style.display = "block";
+              page1.style.display = "none";
+              page3.style.display = "none";
+              page4.style.display = "none";
+           }
+        }
+        
+        function pageThreeClick() {
+           if (page3.style.display = "none") {
+              page3.style.display = "block";
+              page1.style.display = "none";
+              page2.style.display = "none";
+              page4.style.display = "none";
+           }
+        }
+        
+        function pageFourClick() {
+           if (page4.style.display = "none") {
+              page4.style.display = "block";
+              page1.style.display = "none";
+              page2.style.display = "none";
+              page3.style.display = "none";
+           }
+        }
+        
+	    document.getElementById("item1").addEventListener("click", pageOneClick);
+	    document.getElementById("item2").addEventListener("click", pageTwoClick);
+	    document.getElementById("item3").addEventListener("click", pageThreeClick);
+	    document.getElementById("item4").addEventListener("click", pageFourClick);
+    </script>
+	
+	<!--
+	
+	<script type="text/javascript"> /* flag checkers */
+	    var projects = [];
+        var activeProjects = [];
+        
+	    var project0001 = {
+            id: "projectButton42",
+            title: "RevTracker ",
+            priceTag: "(500 ops)",
+            description: "Automatically calculates average revenue per second",
+            trigger: function(){return projectsFlag == 1},
+            uses: 1,
+            cost: function(){return operations>=500},
+            flag: 0,
+            element: null,
+            effect: function(){
+        		project42.flag = 1;
+				revPerSecFlag = 1;
+				standardOps = standardOps-500;
+				displayMessage("RevTracker online");
+				project42.element.parentNode.removeChild(project42.element);
+				var index = activeProjects.indexOf(project42);
+				activeProjects.splice(index, 1);
+            }
+        }
+        
+        projects.push(project0001);
+        
+	</script>
+	
+	-->
+	
+	<script type="text/javascript"> /* Events, flags, etc. */
+        
+        var divHate;
+        
+        function cacheDOMElements() {
+            divHate = document.getElementById("divHate");
+        }
+        
+        cacheDOMElements();
+        
+	    if (flag_0001 === 0){
+            divHate.style.display = "none";
+            }
+        else {
+            divHate.style.display = "";      
+        }  
+	</script>
+	
+	
+	
+	<script type="text/javascript"> /* Fancy effects - Typewriter effect */
+	
+	    var i = 1;
+        var textBox = document.getElementById("textbox");
+        var arrowDown = document.getElementById("arrow-down");
+        var arrowDownS = document.getElementById("arrow-down-shade");
+	
+		/* Fade in/out textbox effect - NOTE: FIX*/
+		
+		var myopacity = 0;
+
+        function fadeInTransition() {
+           if (myopacity<1) {
+              myopacity += .05;
+             setTimeout(function(){fadeInTransition()},100);
+           }
+           textBox.style.opacity = myopacity;
+        }
+        
+        function fadeOutTransition() {
+           if (myopacity>0) {
+              myopacity -= .05;
+             setTimeout(function(){fadeOutTransition()},100);
+           }
+           textBox.style.opacity = myopacity;
+        }
+        
+        function hideTextBox() {
+            textBox.style.display = "none";
+		    arrowDown.style.display = "none";
+	        arrowDownS.style.display = "none";
+        }
+        
+        fadeInTransition();
+
+        
+        
+        
+        
+	
+	    document.addEventListener('DOMContentLoaded',function(event){
+	        
+	        
+
+            var dataText = [ "Hey! You over there!", "If you're here, then that means you have nothing to do, right?", "Want to try something out? It won't hurt, I promise!", "Well first of all, who are you?", ""];
+    	  
+            document.getElementById("textbox").addEventListener("click", advanceDialog);
+	  
+        
+	  
+	  function advanceDialog() {
+            //document.getElementById("textbox").style.color: "#F00";
+            if (arrowDown.style.display == "") {
+                indexText += 1;
+                StartTextAnimation(indexText);
+            }
+	    }
+        
+	  
+	  // keeps calling itself until the text is finished
+	  function typeWriter(text, i, fnCallback) {
+	      arrowDown.style.display = "none";
+	      arrowDownS.style.display = "none";
+		// check if text isn't finished yet
+		if (i < (text.length)) {
+		  // add next character to h1
+		 textBox.innerHTML = text.substring(0, i+1) +'<span id="caret"></span>'; //for the cursor at end effect
+
+		  // wait for a while and call this function again for next character
+		  setTimeout(function() {
+			typeWriter(text, i + 1, fnCallback)
+		  }, 50);
+		}
+		// text finished, call callback if there is a callback function
+		else if (typeof fnCallback == 'function') {
+		  // call callback after timeout
+		  arrowDown.style.display="";
+	      arrowDownS.style.display = "";
+		}
+	  }
+	  // start a typewriter animation for a text in the dataText array
+	   function StartTextAnimation(i) {
+		 // check if dataText[i] exists
+		if (i < dataText[i].length) {
+		  // text exists! start typewriter animation
+		 typeWriter(dataText[i], 0, function(){
+		   // after callback (and whole text has been animated), start next text
+		   StartTextAnimation(i + 1);
+		 });
+		}
+		else if (dataText[i] == "") {
+	        fadeOutTransition();
+		    setTimeout(hideTextBox, 2000);
+		}
+	  } //starttextanimation
+	  
+	  StartTextAnimation(indexText);
+	    }); //typeWriter
+	    
+	    
+		
+	
+
+		
+		
+		
+	    
+	</script>
+	
+	</body>
+
+</html>
