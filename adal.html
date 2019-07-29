@@ -1,5 +1,4 @@
 <html>
-
 	<head>
 	
 	    <title>Test Game</title>
@@ -108,12 +107,133 @@
 	    display: block;
 	    height: 60vh;
 	}
+		
+	#page1 {
+	        display: block;
+	    }
+	    
+	    #page2, #page3, #page4 {
+	        display: none;
+	    }
+	    
+	    #love-bar {
+	        width: 1%;
+	        height: 2em;
+	        border-radius: 0.3em;
+	        background: repeating-linear-gradient(135deg,transparent, transparent 0.5em, #D7A 0.5em, #D7A 1em), linear-gradient(135deg, #FAC, #F00, #FAC);
+	        background-size: 400% 400%;
+	        background-position-x:0%;
+	        animation: barStripes 14s linear infinite;
+	    }
+	    
+        #arrow-down {
+    		width: 0;
+    		height: 0;
+    		border-left: 1.0em solid transparent;
+    		border-right: 1.0em solid transparent;
+    		border-top: 1.0em dashed #FF0;
+    		border-color: linear-gradient(to bottom, #FF0, #990);
+    		position: absolute;
+    		display: block;
+    		bottom: 1em;
+		    right: 1em;
+		    animation: arrowDown 1s linear infinite;
+		}
+		
+		#arrow-down-shade {
+    		width: 0;
+    		height: 0;
+    		border-left: 1.0em solid transparent;
+    		border-right: 1.0em solid transparent;
+    		border-top: 1.5em solid #990;
+    		position: absolute;
+    		display: block;
+    		bottom: 1em;
+		    right: 1em;
+		    animation: arrowDown 1s linear infinite;
+		    filter: drop-shadow(0px 10px 3px rgba(0,0,0,1));
+		}
+	    
+	    
+	    
+	    .text {
+		    position: relative;
+		    bottom: 0;
+		    left: 0;
+	    }
+		
+		#textbox {
+			font-size: 1.4em;
+			font-family: "Share Tech Mono", monospace;
+			color: #0F0;
+			letter-spacing: .15em;
+			background: linear-gradient(to right, #333, #464);
+			margin: 0.5em;
+			padding: 0.5em;
+			min-height: 5em;
+			border-radius: 0.5em;
+			border: 0.2em outset rgba(100, 200, 0, 0.5);
+			box-shadow: 0.5em 0.5em 0.3em #111;
+			-webkit-text-stroke: 0.025em #000;
+            text-shadow:
+                0.15em 0.15em 0.1em #000,
+                -0.1em -0.1em 0.1em #333,  
+                0.05em 0.05em 0.1em #222,
+                -0.05em -0.05em 0.1em #222,
+                0.1em 0.1em 0.1em #333;
+			/*filter: alpha(opacity=100);*/
+            opacity: 0.0;
+		}
+
+		#caret {
+			border-right: 0.5em solid;
+			animation: caret 1s steps(1) infinite;
+		}
+
+		@keyframes caret { /* blinking effect */
+			50% { border-color: transparent };
+		}
+		
+		@keyframes arrowDown {
+          0%, 100% {
+            bottom: 1.5em;
+            transform: rotateY(0deg);
+          }
+          50% {
+            bottom: 1em;
+            transform: rotateY(180deg);
+          }
+        }
+        
+        @keyframes barStripes {
+            0%{
+        		background-position-x:130%;
+        	}
+        	50% {
+        		background-position-x:0%;
+        	}
+        	100% {
+        		background-position-x:-130%;
+        	}
+        }
+		
+		
+		
+		@media screen and (max-width: 568px){
+		    .menu-item {
+                font-size: 0.8em;
+		    }
+		    
+		    #textbox {
+			    font-size: 1.1em;
+		    }
+		}
 	
 	</style>
 	
 	<body>
 	
-		Does it work? :(
+		Does it work? :o
 	
 	<div class="everything">
 	
@@ -188,7 +308,7 @@
 
 		
 		
-	<script type="text/javascript" src="function.js"></script>
+	<script type="text/javascript" src="https://raw.github.com/ruby-j/ruby-j.github.io/master/function.js"></script>
 	<script type="text/javascript" src="event.js"></script>
 	<script type="text/javascript" src="effect.js"></script>
 	
