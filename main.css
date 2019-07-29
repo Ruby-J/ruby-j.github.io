@@ -1,7 +1,8 @@
 body {
-	background-color: linear-gradient(#CAD, #949);
-	color: #444;
-	font-family: tahoma;
+	background: linear-gradient(#CAD, #949);
+	background-attachment: fixed;
+	color: #777;
+	font-family: Tahoma;
 	font-size: 0.95em;
 	min-width: 360px;
 	margin-top: 2.5em;
