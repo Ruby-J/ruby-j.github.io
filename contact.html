@@ -1,0 +1,309 @@
+<html>
+
+    <head>
+    <title>Contact || Ruby J Shilan</title>
+    <link rel="shortcut icon" type="image/x-icon" href={Favicon} />
+    <base target="_self">
+    
+    <link href="https://fonts.googleapis.com/css?family=Baloo|Galindo|Itim|Niramit:200|Quantico" rel="stylesheet">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <style>
+    body {
+        /*
+        background-image: url("https://78.media.tumblr.com/72a2492e1a8af3ecd0e1ef0f878e9c17/tumblr_pa0oalO5K81u03684o1_r1_1280.png");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: top left;
+        */
+        
+        background: 
+        url(https://orig00.deviantart.net/5572/f/2018/180/1/e/menolly_dani_anna_by_eime_leen-dcfs269.png) right bottom repeat,
+        linear-gradient(#FCF, #A6A);
+        font-family: "Galindo", Tahoma;
+        font-size: 0.95em;
+        color: #404;
+    }
+    
+    html {
+        cursor: url("http://orig11.deviantart.net/4ae0/f/2017/024/b/9/yosaf_av_cursor_by_eime_leen-dawnhw2.png"), auto;
+    }
+            
+    html a {
+        color: #B3D;
+        background-color:rgba(200, 220, 255, 0.20);
+        border-radius: 15px;
+        text-decoration: none;
+        cursor: crosshair;
+    }
+    
+    html a:hover {
+        color: #B7F;
+        background-color:rgba(200, 220, 255, 0.40);
+    }
+    
+    p {
+	    text-align: center;
+    }
+    
+    #blah {
+        background-color:rgba(180, 160, 230, 0.75);
+        border-radius: 15px;
+        height: 90vh;
+        overflow: auto;
+        max-width: 600px;
+        margin: 1em;
+        margin-top: 2.5em;
+    }
+    
+    #blah1, #blah2 {
+        background-color: #CDA;
+        border-radius: 15px;
+        padding: 0.2em;
+        margin: 0.4em;
+        font-size: 0.8em;
+        font-family: "Itim", Tahoma;
+        line-height: 24px;
+	    text-align: center;
+    }
+    
+    #blah2 {
+        background-color: #DAC;
+    }
+    
+    img {
+        background-color:rgba(180, 160, 230, 0.5);
+        border: 3px solid #EAD;
+        border-radius: 15px;
+        padding: 0.4em;
+        margin: 0.15em;
+    }
+    
+    img:hover {
+        background-color:rgba(255, 190, 240, 0.8);
+        border: 3px solid #ADF;
+    }
+    
+    .imgdiv {
+        display: table;
+        margin: 0 auto;
+	    text-align: center;
+    }
+    
+    #credit {
+        background-color:rgba(180, 160, 230, 0.5);
+        border: 3px solid #EAD;
+        border-radius: 15px;
+        position: absolute;
+        right: 0.5em;
+        bottom: 0.5em;
+        padding: 0.3em;
+        width: 200px;
+    }
+    
+    /* scrollbar - Webkit browsers only */
+			
+	::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.iframe-controls-container.iframe-controls-container--unified, .tmblr-iframe--unified-controls, .iframe-controls-container.iframe-controls-container--rubyjcat, .buttons-container, .app-cta-button, .tmblr-iframe, .tmblr-iframe--app-cta-button, .tmblr-iframe--loaded
+    {
+        display: none!important;  height: 0px!important;
+    }
+    
+    #uselesssidebar {
+     background: -webkit-linear-gradient(left, rgba(220, 80, 210, 1.0), rgba(180, 160, 230, 0.7));
+     width: 100%;
+     height: 2.4em;
+     top: 0em;
+     left: 0em;
+     position: fixed;
+     display: block;
+     padding: 0.1em 0;
+     border: none;
+     z-index: 15;
+     line-height: 16px;
+     font-size: 0.9em;
+     font-family: "Niramit:200", Tahoma;
+    }
+    
+    .dropdown {
+      background-color:rgba(180, 40, 220, 0.8);
+      color: white;
+      padding: 0.45em;
+      margin: 0 0.2em;
+      font-size: 1.3em;
+      border: 1px solid #DCD;
+      box-shadow: 0px 0px 3px #545;
+      border-radius: 0.5em;
+      width: 60px;
+      float: left;
+      z-index: 14;
+    }
+    
+    #downarrow, #downarrow2 {
+        display: none;
+    }
+    
+    .dropdown:hover {
+        background-color:rgba(100, 0, 100, 0.5);
+    }
+    
+    .dropdown:hover .dropdown-content, .dropdown:hover #downarrow, .dropdown:hover #downarrow2 {
+        display: block;
+    }
+    
+    .dropdown:hover #uparrow, .dropdown:hover #uparrow2 {
+        display: none;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      margin: 0.5em 0.5em;
+      background-color: rgba(160, 20, 180, 0.70);
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 10;
+      border-radius: 0.5em;
+    }
+    
+    .dropdown-content a {
+      color: #FFF;
+      display: block;
+      padding: 0.7em 1em;
+      float: none;
+    }
+    
+    .dropdown-content a:nth-child(even) {
+        background-color:rgba(160, 0, 140, 0.70);
+    }
+    
+    .dropdown-content a:hover {
+        background-color:rgba(240, 180, 220, 0.70);
+        border-radius: 0.5em;
+    }
+    
+    .current-page {
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+    
+    .current-page a {
+        color: #BBB;
+        background-color:rgba(60, 40, 80, 0.50);
+        opacity: 0.7;
+        display: block;
+    }
+    
+    @media screen and (max-width: 481px){
+        .dropdown-content {
+            width: 80%;
+            position: fixed;
+            top: 1.25em;
+            left: 0em;
+            font-size: 1.0em;
+        }
+        
+        .dropdown {
+          margin: 0 0.5em;
+          font-size: 1.3em;
+        }
+    }
+    
+    </style>
+
+    <div id="uselesssidebar">
+    
+        <a href="/"><div class="dropdown">
+            Home
+        </div></a>
+        <div class="dropdown">
+          Links <span id="uparrow" style="float: right;">▲</span> <span id="downarrow" style="float: right;">▼</span>
+          <div class="dropdown-content">
+            <a href="/portfolio">Portfolio</a>
+            <a href="/vo">Voice Over Projects</a>
+            <a href="/about">About</a>
+            <span class="current-page"><a href="/contact">Contact</a></span>
+            <a href="/ask">Ask</a>
+            <a href="/tags">Tags</a>
+            <a href="/archive">Archive</a>
+          </div>
+        </div>
+      
+        <div class="dropdown">
+          Misc <span id="uparrow" style="float: right;">▲</span> <span id="downarrow" style="float: right;">▼</span>
+          <div class="dropdown-content">
+            <a href="/inspirations">My BTVA Inspirations</a>
+            <a href="/deleted-btva-auditions">My BTVA profile (parody)</a>
+            <a href="/post/160820813119/btva-blacklist-whitelist-script">BTVA BLACKLISTER SCRIPT</a>
+            <a href="/editing">Editing Tools and Stuff I Use</a>
+            <a href="/myfavchars">My Favourite Characters</a>
+            <a href="/hiddengems">"Hidden Gem" Anime</a>
+          </div>
+        </div>
+        
+    </div>
+
+<div id="credit">
+    art by <a href="https://twitter.com/menollyhime">menolly</a>
+</div>
+
+<div id="blah">
+
+<div id="blah2">
+</div>
+<p><strong>Main</strong></p>
+
+<div>
+<div class="imgdiv">
+<img src="https://ssl.gstatic.com/ui/v1/icons/mail/images/favicon5.ico"><img src="http://i.imgur.com/w879zOy.png" /><strike><sup>I am cat in disguise</sup></strike><br><br>
+</div>
+</div>
+
+<div>
+<div class="imgdiv">
+<a href="https://www.youtube.com/RubyJCat" target="_blank"><img src="https://www.youtube.com/yts/img/favicon_32-vfl8NGn4k.png"></a>
+<a href="http://www.behindthevoiceactors.com/members/RubyJCat/casting-call/auditions/" target="_blank"><img src="http://www.behindthevoiceactors.com/favicon.ico" width="32px"></a>
+<a href="http://castingcall.club/m/rubyjcat" target="_blank"><img src="https://www.castingcall.club/assets/favicon-32x32-807c43cc31f25272be3c537994a6c92fde6fdd70947bd5716222af2a7b5dc1be.png"></a>
+<a href="https://soundcloud.com/rubyjcat" target="_blank"><img src="https://a-v2.sndcdn.com/assets/images/sc-icons/favicon-2cadd14b.ico"></a>
+<br>
+<img src="https://discordapp.com/assets/07dca80a102d4149e9736d4b162cff6f.ico">
+<a href="https://twitter.com/RubyJCat" target="_blank"><img src="https://abs.twimg.com/favicons/favicon.ico"></a>
+<img src="https://assets.tumblr.com/images/favicons/favicon.ico" width="32px">
+<a href="https://eime.tumblr.com"><img src="https://78.media.tumblr.com/avatar_1341593740ef_128.pnj" width="32px"></a>
+<a href="https://www.deviantart.com/eime-leen" target="_blank"><img src="https://i.deviantart.net/icons/da_favicon.ico" width="32px"></a>
+</div>
+</div>
+
+<p><strong>Other (Infrequent Use)</strong></p>
+
+<div>
+<div class="imgdiv">
+<img src="https://ssl.gstatic.com/images/branding/product/ico/google_plus_alldp.ico" width="32px">
+<img src="https://secure.skypeassets.com/i/common/images/icons/favicon.ico" width="32px">
+<a href="https://www.reddit.com/user/rubyjcat" target="_blank"><img src="https://www.redditstatic.com/favicon.ico"></a>
+<a href="https://www.instagram.com/rubyjcat/"><img src="https://www.instagram.com/static/images/ico/favicon.ico/dfa85bb1fd63.ico" width="32px"></a>
+<a href="http://voiceacting.boards.net/user/2622"><img src="http://storage.proboards.com/forum/images/favicon.ico" width="32px"></a>
+<a href="https://ko-fi.com/rubyjcat"><img src="https://ko-fi.com/favicon-32x32.png"></a>
+</div>
+</div>
+
+<div id="blah2">
+Thanks for visiting my Tumblr.<br>
+You can usually find me @RubyJCat because I use that username for almost everything.
+</div>
+
+<div id="blah1">
+<em><strong>Just in case: I only use social media listed on this page. I do not go by 'Rubyjcat' or 'Ruby J Shilan' on Facebook, </strong></em><em><strong>Steam, LinkedIn, etc. and any profile using these names is NOT me.</strong></em>
+</div>
+
+<p><span style="font-size:0.8em">
+<i>I encourage everyone to be careful with what they post and share online.</i></span>
+
+</div>
+
+
+</html>
