@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/port.css">
     
     <script>
     
@@ -35,679 +37,235 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <style>
-    body {
-        background: -moz-linear-gradient(#DBE, #A6A);
-        background: -webkit-linear-gradient(#DBE, #A6A);
-        background: linear-gradient(#DBE, #A6A);
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-position: bottom right;
-        font-family: "Quantico", Tahoma;
-        font-size: 0.8em;
-        min-width: 300px;
-        margin: 0;
-    }
     
-    html {
-        cursor: crosshair;
-    }
-    
-    html a {
-        color: #B3D;
-        text-decoration: none;
-        background-color:rgba(200, 220, 255, 0.20);
-        border-radius: 15px;
-        cursor: url("http://orig11.deviantart.net/4ae0/f/2017/024/b/9/yosaf_av_cursor_by_eime_leen-dawnhw2.png"), auto;
-    }
-    
-    html a:hover {
-        color: #B7F;
-        background-color:rgba(200, 220, 255, 0.40);
-    }
-    
-    .nav {
-        width: 100%;
-        height: 2.4em;
-	    /*border-radius: 10px;*/
-        background-color:rgba(150, 70, 160, 0.40);
-        z-index: 9;
-        overflow-x: auto;
-        overflow-y: hidden;
-        white-space: nowrap;
-        filter: drop-shadow(1px 1px 2px #505);
-    }
-    
-    .label {
-        border-top: 6px;
-	    border-style: outset;
-	    border-color: #666;
-	    border-radius: 15px;
-        border-bottom: none;
-	    padding: 0.2em;
-	    background-color:rgba(200, 200, 245, 0.50);
-	    color: #000;
-        font-size: 1.2em;
-        font-family: "Chango", Tahoma;
-        display: inline-block;
-        z-index: 5;
-    }
-    
-    .label:hover {
-        padding-left: 0.5em;
-        padding-right: 0.5em;
-	    border-color: #A9A;
-	    background-color:rgba(200, 200, 245, 0.90);
-	    color: #555;
-    }
-    
-    .label:active {
-        background-color:#EAF;
-    }
-    
-    .content {}
-    
-    #the_cont {
-        height: 83vh;
-        overflow: hidden;
-	    border: 6px outset #666;
-	    border-radius: 15px;
-        margin: 0 0.5em 0.5em 0.5em;
-    }
-    
-    #cont_in {
-	    height: 83vh;
-	    padding: 0.2em;
-	    background-color:rgba(200, 200, 245, 0.50);
-	    overflow: auto;
-    }
-    
-    #container_pro, #container_art, #container_res {
-	    border: 6px solid #D7D;
-	    border-radius: 15px;
-	    margin: 0.4em;
-	    padding: 0.2em;
-	    background-color:rgba(255, 200, 245, 0.50);
-	    font-size: 1.5em;
-	    text-align: center;
-	    display: block;
-    }
-    
-    #container_pro:hover {
-        background-color:rgba(255, 200, 245, 0.90);
-        border-color: #E9E;
-    }
-    
-    #container_art {
-        font-size: 1.1em;
-    }
-    
-    /* Embedding Google Drive PDF makes the page unable to scroll on mobile */
-    
-    #container_res {
-        display: block; /* enable to show iframe on desktop */
-        background-color:rgba(200, 225, 255, 0.50);
-        border-color: #8BD;
-    }
-    
-    #container_res:hover {
-        background-color:rgba(200, 225, 255, 0.90);
-        border-color: #9CE;
-    }
-    
-    /*
-    .button a, .button2 a, .button3 a {
-    	color: #307;
-    }
-    
-    .button a:hover, .button2 a:hover, .button3 a:hover {
-        color: #D3F;
-    }
-    */
-    
-    h1, h4 {
-        font-size: 1.2em;
-        font-family: "courier new", verdana;
-        background-color:rgba(255, 255, 255, 0.60);
-        border-radius: 15px;
-        text-align: center;
-        font-weight: bold;
-        padding: 0.15em;
-        width: auto;
-    }
-    
-    h2 {
-        font-size: 1.3em;
-        font-family: "Itim", "Courier New", verdana;
-        background-color:rgba(255, 255, 255, 0.40);
-        border-radius: 15px;
-        text-align: center;
-        font-weight: bold;
-        padding: 0.20em;
-        width: auto;
-    }
-    
-    h3 {
-        font-size: 1.2em;
-        font-family: "Galindo", Tahoma;
-        background-color:rgba(200, 200, 255, 0.40);
-        border-radius: 15px;
-        text-align: center;
-        font-weight: bold;
-        padding: 0.10em;
-        display: inline-block;
-        z-index: 1;
-    }
-    
-    h4 {
-        background-color:rgba(150, 150, 150, 0.70);
-    }
-    
-    #stuff {
-        color: #C33;
-    }
-    
-    #approved_text {
-        color: #55F;
-        font-size: 1.2em;
-        font-family: arial;
-    }
-    
-    #strike {
-        text-decoration: line-through;
-    }
-    
-    .ui-tooltip {
-    position: absolute;
-    display: block;
-    background: #ECF;
-    border: 2px solid white;
-    padding: 5px 10px;
-    color: #555;
-    font: 0.9em "Helvetica";
-    font-style: italic;
-    letter-spacing: 0px;
-    box-shadow: 0 0 7px black;
-    white-space: pre-line;
-    border-radius: 20px;
-    }
-  
-    .ui-tooltip-content::after {
-    content: " ";
-    position: absolute;
-    top: calc(50% - 10px);
-    right: 0px;
-    margin-right: -10px;
-    border-width: 8px;
-    border-style: solid;
-    border-color: transparent transparent transparent #D0C;
-    }
-   
-    iframe {
-       width: 90%;
-       max-width: 640px;
-    }
-   
-    iframe.vo {
-       height: 40vh;
-       max-height: 400px;
-       display: none; /* resume */
-    }
-   
-    iframe.pl {
-       height: 40vh;
-       max-height: 360px;
-       max-width: 480px;
-    }
-    
-    /*
-    
-    .sticky {
-        position: fixed;
-        top: 0;
-    }
-    
-    .sticky + .content {
-        padding-top: 2.2em;
-    }
-    
-    */
-    
-    .art_cap {
-        border-radius: 10px;
-        background-color:rgba(150, 200, 255, 0.20);
-        display: inline-block;
-        margin: 0.1em;
-        position: relative;
-        vertical-align: top;
-        filter: drop-shadow(3px 3px 10px #505);
-    }
-    
-    .art_cap img {
-        border: 2px dashed #555;
-        margin-right: -5px;
-    }
-    
-    .art_cap img:hover {
-        filter: brightness(110%) saturate(1.5) contrast(90%);
-    }
-    
-    .art_cap a, .art_cap a:hover {
-        background-color: transparent;
-    }
-    
-    #art_cap2 img {
-        display: block;
-    }
-    
-    /*
-        
-    #art_cap p {
-        padding: 2px 5px;
-        word-wrap: break-word;
-    }
-    
-    #art_cap span {
-        position: absolute;
-        visibility: hidden;
-    }
-    
-    #art_cap:hover {
-        transition: transform 0.2s;
-        transform: skewY(1deg);
-    }
-    
-    #art_cap img:hover {
-        /*
-        transition: transform 0.2s;
-        transform-origin: top left;
-        transform: scale(1.0);
-        */
-        /*
-        max-width: 720px;
-        max-height: 640px;
-    }
-    
-    #art_cap:hover span {
-        visibility: visible;
-        top: 0;
-        left: 0;
-        z-index: 1;
-    }
-    
-    */
-    
-    #blank {
-        height: 0.5em;
-        visibility: hidden;
-    }
-    
-    #overlay, #overlay2, #overlay3 {
-        position: absolute;
-	    font-size: 2em;
-        z-index: 6;
-        padding: 0 0.2em;
-        background-color:rgba(200, 150, 225, 0.30);
-        border-radius: 10px;
-        box-shadow: 3px 3px 5px #505;
-    }
-    
-    #overlay {
-	    top: 0px;
-	    right: -3px;
-        text-align: right;
-	    line-height: 1.2em;
-    }
-    
-    #overlay2 {
-        bottom: 0px;
-	    left: 0px;
-	    font-size: 1em;
-	    padding: 0 0.5em;
-	    text-align: left;
-	    background-color:rgba(150, 200, 225, 0.60);
-	    box-shadow: 3px 3px 5px #055;
-	    display: none;
-    }
-    
-    .art_cap:hover #overlay {
-        background-color:rgba(200, 150, 225, 0.60);
-    }
-    
-    #overlay3 {
-        bottom: 0px;
-	    left: 0px;
-	    text-align: left;
-	    background-color:rgba(150, 200, 225, 0.30);
-	    box-shadow: 3px 3px 5px #055;
-	    display: visible;
-	    z-index: 5;
-    }
-    
-    .art_cap:hover #overlay2, #overlay3:hover #overlay2 {
-        display: block;
-    }
-    
-    .art_cap:hover #overlay3, #overlay3:hover {
-        visibility: hidden;
-    }
-    
-    /* scrollbar - Webkit browsers only */
-    
-    ::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
-        background: transparent;
-    }
-
-    ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px #505;
-        background: #555;
-    }
- 
-    ::-webkit-scrollbar-thumb {
-        background: #A4B; 
-        border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: #E9F; 
-    }
-    
-    audio {
--webkit-transition:all 0.25s linear;
--moz-transition:all 0.25s linear;
-transition:all 0.25s linear;
--moz-box-shadow: 2px 2px 4px 0px #808;
--webkit-box-shadow:  2px 2px 4px 0px #808;
-box-shadow: 2px 2px 4px 0px #808;
-border-radius: 10px;
-    }
-    
-    audio:hover, audio:focus, audio:active {
--webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
--moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
--webkit-transform: scale(1.05);
--moz-transform: scale(1.05);
-transform: scale(1.05);
-    }
-    
-    @media screen and (max-width: 568px){
-        
-        .iframe-controls-container.iframe-controls-container--unified, .tmblr-iframe--unified-controls, .buttons-container, .app-cta-button, .tmblr-iframe, .tmblr-iframe--app-cta-button, .tmblr-iframe--loaded
-	    {
-            display: none!important;  height: 0px!important;
-        }
-        
-        #some-element { display: none; }
-        
-        .nav {
-            font-size: 0.9em;
-        }
-        
-        h3 {
-            font-size: 0.95em;
-        }
-        
-        iframe.vo {
-            /*height: 40vw;*/
-            display: none;
-        }
-        
-        #container_res {
-            display: block;
-        }
-   
-        iframe.pl {
-            height: 40vw;
-        }
-        
-        ::-webkit-scrollbar {
-        width: 4px;
-        height: 4px;
-        }
-    
-    }
-    
-    </style>
 </head>
     
 <body>
 
-<div style="margin: 0.2em;">
+	<div style="margin: 0.2em;">
 
-<h3 style="letter-spacing: 5px; float: right;">PORTFOLIO</h3>
+	<h3 style="letter-spacing: 5px; float: right;">PORTFOLIO</h3>
 
-<div style="position:absolute;top:-5px;left:40%;" align="center">
-<a href="/contact" target="_blank"><h3 style="letter-spacing: 5px;" title="Contact">RUBY J SHILAN<br>@RUBYJCAT</h3></a>
-<img src="https://66.media.tumblr.com/avatar_6d3f7f0b3337_128.png" width="48px">
-</div>
+	<div style="position:absolute;top:-5px;left:40%;" align="center">
+	<a href="/contact" target="_blank"><h3 style="letter-spacing: 5px;" title="Contact">RUBY J SHILAN<br>@RUBYJCAT</h3></a>
+	<img src="https://66.media.tumblr.com/avatar_6d3f7f0b3337_128.png" width="48px">
+	</div>
 
-<a href="/" target="_self"><-- Back to Home Page</a>
-<br>
-<em>Last Updated: Apr 2020</em>
+	<a href="/" target="_self"><-- Back to Home Page</a>
 
-<div style="clear:both"></div>
+	<div style="clear:both"></div>
 
-</div>
+	</div>
 
 
-<div class="nav" id="mynav">
+	<div class="nav" id="mynav">
 
-<a href="#vo"><div class="label">Voice Over</div></a>
-<a href="#art"><div class="label">Digital Art</div></a>
-<a href="/contact" target="_blank"><div class="label">Contact</div></a>
+	<a href="#vo"><div class="label">Voice Over</div></a>
+	<a href="#art"><div class="label">Digital Art</div></a>
+	<a href="/contact" target="_blank"><div class="label">Contact</div></a>
 
-</div>
+	</div>
 
 
 
 
-<div class="content">
+	<div class="content">
 
-<div id="the_cont">
+	<div id="the_cont">
 
-<div id="cont_in" style="background: linear-gradient(to bottom, rgba(120,150,240,0.1), rgba(100,150,255,0.7));">
-<a id="vo"></a>
-<div id="blank"></div>
+	<div id="cont_in" style="background: linear-gradient(to bottom, rgba(120,150,240,0.1), rgba(100,150,255,0.7));">
+	<a id="vo"></a>
+	<div id="blank"></div>
 
-<h2>MY VOICE</h2>
+	<h2>MY VOICE</h2>
 
-As a hobbyist/aspiring voice over artist, my voice can be described as soft-spoken, slightly nasal, soothing, and youthful. Character types include shy, quiet, sweet, awkward, nerdy, sarcastic, and monotone.<br><br>
+	As a hobbyist/indie voice over artist, my voice can be described as soft-spoken, slightly nasal, soothing, and youthful. Character types include shy, quiet, sweet, awkward, nerdy, sarcastic, and monotone.<br><br>
 
-Demo Reel (2018-2019)<br>
-<audio controls style="background-color:#90F;"><source src="https://ruby-j.github.io/src/RubyJShilan_Demo_2018-19.wav" type="audio/mpeg">
-Your browser does not support the audio element.</audio>
+	Demo Reel<br>
+	<audio controls style="background-color:#90F;"><source src="https://ruby-j.github.io/src/RubyJShilan_Demo_2018-19.wav" type="audio/mpeg">
+	Your browser does not support the audio element.</audio>
 
-<br>
+	<br>
 
-<h2>VO RESUME</h2>
+	<h2>VO RESUME</h2>
 
-<a href="https://drive.google.com/file/d/1FB864qJuAlCX3FFFleVmCwxfeMwRxVGa/view" target="_blank"><div id="container_res">► Resume (Google Drive PDF) ◄</div></a>
+	<a href="https://drive.google.com/file/d/1FB864qJuAlCX3FFFleVmCwxfeMwRxVGa/view" target="_blank"><div id="container_res">► Resume (Google Drive PDF) ◄</div></a>
 
-<object>
-<iframe class="vo" src="https://drive.google.com/file/d/1FB864qJuAlCX3FFFleVmCwxfeMwRxVGa/preview"></iframe>
-</object>
+	<object>
+	<iframe class="vo" src="https://drive.google.com/file/d/1FB864qJuAlCX3FFFleVmCwxfeMwRxVGa/preview"></iframe>
+	</object>
 
-<h2>RATES</h2>
-<center>
-Please contact.
-</center>
+	<h2>RATES</h2>
+	<center>
+	Please contact.
+	</center>
 
-<h2>PROJECTS</h2>
+	<h2>PROJECTS</h2>
 
-<a href="https://rubyjcat.tumblr.com/vo"><div id="container_pro">
-► All Voice Over Projects ◄
-</div></a>
+	<a href="https://rubyjcat.tumblr.com/vo"><div id="container_pro">
+	► All Voice Over Projects ◄
+	</div></a>
 
-<br>
+	<br>
 
-</div> <!-- VO -->
-
-
-
-<div id="cont_in" style="background: linear-gradient(to bottom, rgba(240,70,200,0.1), rgba(100,40,200,0.7));">
-<a id="art"></a>
-<div id="blank"></div>
-
-<h2>DIGITAL ART</h2>
-
-As a digital artist, I go by <a href="https://www.deviantart.com/eime-leen">eime-leen / eime</a>.<br>
-I've been drawing since 2006; even longer than I've been voice acting.<br>
-Tools include Krita, GIMP, and Blender. When it comes to character art, I don't use the path tool; lines are drawn by hand (via tablet).
-<p>
-Prices are currently being re-evaluated for my animated artwork.
-
-<h2>EXAMPLES - CHIBI</h2>
-
-<div class="art_cap">
-<a href="https://orig00.deviantart.net/2bc8/f/2018/188/4/7/yosaf_av_i_by_eime_leen-dcgjgzr.png" target="_blank"><img src="https://orig00.deviantart.net/2bc8/f/2018/188/4/7/yosaf_av_i_by_eime_leen-dcgjgzr.png" width="128px"></a>
-<div id="overlay" title="$5">$5</div>
-<div id="overlay2">Icon<br>Simple Shading</div>
-<div id="overlay3">✩</div>
-</div>
-
-<div class="art_cap">
-    <a href="https://eime.tumblr.com/post/175120423586/kokichibi" target="_blank">
-    <img src="https://78.media.tumblr.com/a84498e20e0f6665dcf7d21551feffdf/tumblr_pa6yf215Io1u03684o5_r6_250.gif">
-    <img src="https://78.media.tumblr.com/d389c6a375d8de9d13201db22d068512/tumblr_pa6yf215Io1u03684o6_r4_250.gif">
-    </a>
-    <div id="overlay" title="TBA">$--<br><span style="font-size:0.6em">+$--/pose</span></div>
-    <div id="overlay2">Detailed Shading<br>Animated<br>Disclaimer: (If in <i>FEHeroes</i> Art Style, I draw the entire artwork from scratch and do not use copyrighted assets.)</div>
-    <div id="overlay3">✩</div>
-</div>
-
-<div class="art_cap">
-    <a href="https://eime.tumblr.com/post/177567795566/ryota-mitarai-feh-chibi" target="_blank">
-    <img src="https://78.media.tumblr.com/adb2c7f32b1f7451bfc9bd6a756c655a/tumblr_pe9cy1D8HZ1u03684o8_r1_250.gif">
-    <img src="https://78.media.tumblr.com/91b77d679a6f79e0bfe43d27b75ae083/tumblr_pe9cy1D8HZ1u03684o9_r1_250.gif">
-    </a>
-    <div id="overlay" title="TBA">$--<br><span style="font-size:0.6em">+$--/pose</span></div>
-    <div id="overlay2">Detailed Shading<br>Animated<br>Disclaimer: (If in<i>FEHeroes</i> Art Style, I draw the entire artwork from scratch and do not use copyrighted assets.)</div>
-    <div id="overlay3">✩</div>
-</div>
-
-<div class="art_cap">
-    <a href="https://eime.tumblr.com/post/175940203736/neeul-feh-chibi" target="_blank">
-    <img src="https://78.media.tumblr.com/563a2fc09a60aee5fdf0159b73b4b8bb/tumblr_pbxxzyzMOQ1u03684o4_r1_250.gif">
-    <img src="https://78.media.tumblr.com/aeca0e94d9617552c56262095df99afc/tumblr_pbxxzyzMOQ1u03684o2_r1_250.gif">
-    </a>
-    <div id="overlay" title="TBA">$--<br><span style="font-size:0.5em">(3 poses)</span></div>
-    <div id="overlay2">Detailed Shading<br>Animated, 3 poses<br><i>Commissioned </i></div>
-    <div id="overlay3">✩</div>
-</div>
-
-<div class="art_cap">
-    <a href="https://eime.tumblr.com/post/176790066206/commission-malik-battler" target="_blank">
-    <img src="https://orig00.deviantart.net/b2ef/f/2018/216/c/f/anim___battler_bow2_by_eime_leen-dcj8rj1.gif">
-    <img src="https://orig00.deviantart.net/541f/f/2018/219/2/f/anim___malik_axe_by_eime_leen-dcjj476.gif">
-    </a>
-    <div id="overlay" title="TBA">$--<br><span style="font-size:0.5em;line-height:20px;">(2 chars)</span></div>
-    <div id="overlay2">Detailed Shading<br>Animated, 2 characters, 2 poses each<br><i>Commissioned</i></div>
-    <div id="overlay3">✩</div>
-</div>
-
-<div class="art_cap">
-    <a href="https://eime.tumblr.com/" target="_blank">
-    <img src="https://66.media.tumblr.com/eb979f48cee13986911455bfd6a808f0/bcf979263706b942-52/s250x400/01dcba741dd1838898ea00ff3dd1d4822dc2cbc8.gifv">
-    <img src="https://66.media.tumblr.com/2820f99367df0c32f33273d8c015c805/bcf979263706b942-d7/s400x600/7a0bd1c3184b676607c6b1254ddcc9c5d85aa047.gifv">
-    </a>
-    <div id="overlay" title="TBA">$--<br><span style="font-size:0.5em;line-height:20px;">(2 chars)</span></div>
-    <div id="overlay2">Detailed Shading<br>Animated, 2 characters, 1 pose each<br><i>Commissioned</i></div>
-    <div id="overlay3">✩</div>
-</div>
-
-<div style="clear:both"></div>
-
-<h2>EXAMPLES - NORMAL</h2>
-
-<div class="art_cap" id="art_cap2">
-<a href="https://orig00.deviantart.net/35d7/f/2018/145/b/3/_ad___annabelle_oncadee__oc_sheet__by_eime_leen-dccafhh.png" target="_blank"><img src="https://orig00.deviantart.net/35d7/f/2018/145/b/3/_ad___annabelle_oncadee__oc_sheet__by_eime_leen-dccafhh.png" width="500px"></a>
-
-<div id="overlay" title="($30+$15)+$7.50">$30</div>
-<div id="overlay2">Character Reference Sheet (with Simple Vector Graphics)<br>Simple Shading</div>
-<div id="overlay3">✩</div>
-</div>
-
-<div class="art_cap">
-<a href="https://orig00.deviantart.net/a97c/f/2017/141/d/0/_fehxdr3xndrv3___maki__full_portrait__by_eime_leen-db9x8cn.png" target="_blank"><img src="https://orig00.deviantart.net/a97c/f/2017/141/d/0/_fehxdr3xndrv3___maki__full_portrait__by_eime_leen-db9x8cn.png" height="400px"></a>
-<div id="overlay" title="$30+$15">$45</div>
-<div id="overlay2">Full Body<br>Detailed Shading</div>
-<div id="overlay3">✩</div>
-</div>
-
-<div class="art_cap">
-<a href="https://orig00.deviantart.net/09ad/f/2018/183/d/3/maeko_by_eime_leen-dcg3la8.png"><img src="https://orig00.deviantart.net/09ad/f/2018/183/d/3/maeko_by_eime_leen-dcg3la8.png" width="200px"></a>
-<div id="overlay" title="$25">$25</div>
-<div id="overlay2">Thigh Up<br>Simple Shading<br><i>(Does not count as Detailed Background)</i></div>
-<div id="overlay3">✩</div>
-</div>
-
-<div class="art_cap">
-<a href="https://pre00.deviantart.net/62b2/th/pre/i/2015/051/7/c/kooky__oc__request_by_eime_leen-d8ionyr.png" target="_blank"><img src="https://pre00.deviantart.net/62b2/th/pre/i/2015/051/7/c/kooky__oc__request_by_eime_leen-d8ionyr.png" width="300px"></a>
-<div id="overlay" title="$30">$30</div>
-<div id="overlay2">Part human / Part Anthro<br>A <a href="http://fav.me/d8ionyr">request</a> done in 2015.<br><i>(Does not count as Detailed Background)</i></div>
-<div id="overlay3">✩</div>
-</div>
-
-<div class="art_cap">
-<a href="https://pre00.deviantart.net/7657/th/pre/f/2018/197/6/a/merchant__2015__by_eime_leen-dcg4ow2.png" target="_blank"><img src="https://pre00.deviantart.net/7657/th/pre/f/2018/197/6/a/merchant__2015__by_eime_leen-dcg4ow2.png" width="250px"></a>
-<div id="overlay" title="$30">$30</div>
-<div id="overlay2">Non-human / Imaginary<br>Concept Art</div>
-<div id="overlay3">✩</div>
-</div>
-
-<div style="clear:both"></div>
-
-<h2>COMMISSION INFO</h2>
-<a id="info"></a>
-
-<div id="container_art">
-<b>Payment</b><br>
-Prices are in USD. Negotiable due to the various add-ons.<br>
-I ask for payment upfront via PayPal.
-
-<table cellspacing="4" width="100%"><tr>
-<td valign="top" colspan="2" style="background-color:rgba(40,120,255,0.5);">
-<font color="#44C">
-<b>Prices are currently being re-evaluated. Contact to negotiate.
-</i></font>
-</td>
-</tr></table>
-<br>
-<b>Characters</b>
-<br>
-There is a limit of two (2) characters per commission. If you want me to draw any more characters, it will count as a separate commission.<br>
-Currently open to drawing fandom characters and OCs (already existing characters).<br>
-Please provide references!
-<br><br>
-<b>Progress Updates</b>
-<br>
-For commissions that take longer to finish, I can use Sta.sh to privately upload progress (previews) of the artwork until completed.
-<br><br>
-<b>Refunds</b>
-<br>
-Can offer full or partial refund depending on progress (not started, draft, etc.).<br>
-When refunding, I am not responsible for any PayPal fees, if charged on your end.
-<br><br>
-<b>Copyright</b>
-<br>
-By commissioning me, you are agreeing to the following terms.<br>
-<a href="https://eime.tumblr.com/guidelines">Guidelines</a><br><br>
-The rights of the artwork belong to me (as the independent artist).<br>
-The commissioner is allowed to use the artwork for personal use non-commercially, and to promote their characters (if OC) and repost the artwork (with artist credit).
-<br>
-The commissioner is not allowed to claim the artwork as their own, or sell the commissioned artwork without a written agreement.
-</div>
-    
-</div> <!-- DA -->
+	</div> <!-- VO -->
 
 
 
-</div> <!-- The_Cont -->
+	<div id="cont_in" style="background: linear-gradient(to bottom, rgba(240,70,200,0.1), rgba(100,40,200,0.7));">
+	<a id="art"></a>
+	<div id="blank"></div>
 
-</div> <!-- content -->
+	<h2>DIGITAL ART</h2>
+
+	As a digital artist, I go by <a href="https://www.deviantart.com/eime-leen">eime-leen / eime</a>.<br>
+	I've been drawing since 2006; even longer than I've been voice acting.<br>
+	Tools include Krita, GIMP, and Blender. When it comes to character art, I don't use the path tool; lines are drawn by hand (via tablet).
+	<p>
+	Prices are currently being re-evaluated for my animated artwork.
+
+	<h2>EXAMPLES - CHIBI</h2>
+
+	<div class="art_cap">
+		<a href="https://eime.tumblr.com/post/175120423586/kokichibi" target="_blank">
+		<img src="https://78.media.tumblr.com/a84498e20e0f6665dcf7d21551feffdf/tumblr_pa6yf215Io1u03684o5_r6_250.gif">
+		<img src="https://78.media.tumblr.com/d389c6a375d8de9d13201db22d068512/tumblr_pa6yf215Io1u03684o6_r4_250.gif">
+		</a>
+		<div id="overlay" title="TBA">$--<br><span style="font-size:0.6em">+$--/pose</span></div>
+		<div id="overlay2">Detailed Shading<br>Animated<br>Disclaimer: (If in <i>FEHeroes</i> Art Style, I draw the entire artwork from scratch and do not use copyrighted assets.)</div>
+		<div id="overlay3">✩</div>
+	</div>
+
+	<div class="art_cap">
+		<a href="https://eime.tumblr.com/post/177567795566/ryota-mitarai-feh-chibi" target="_blank">
+		<img src="https://78.media.tumblr.com/adb2c7f32b1f7451bfc9bd6a756c655a/tumblr_pe9cy1D8HZ1u03684o8_r1_250.gif">
+		<img src="https://78.media.tumblr.com/91b77d679a6f79e0bfe43d27b75ae083/tumblr_pe9cy1D8HZ1u03684o9_r1_250.gif">
+		</a>
+		<div id="overlay" title="TBA">$--<br><span style="font-size:0.6em">+$--/pose</span></div>
+		<div id="overlay2">Detailed Shading<br>Animated<br>Disclaimer: (If in<i>FEHeroes</i> Art Style, I draw the entire artwork from scratch and do not use copyrighted assets.)</div>
+		<div id="overlay3">✩</div>
+	</div>
+
+	<div class="art_cap">
+		<a href="https://eime.tumblr.com/post/175940203736/neeul-feh-chibi" target="_blank">
+		<img src="https://78.media.tumblr.com/563a2fc09a60aee5fdf0159b73b4b8bb/tumblr_pbxxzyzMOQ1u03684o4_r1_250.gif">
+		<img src="https://78.media.tumblr.com/aeca0e94d9617552c56262095df99afc/tumblr_pbxxzyzMOQ1u03684o2_r1_250.gif">
+		</a>
+		<div id="overlay" title="TBA">$--<br><span style="font-size:0.5em">(3 poses)</span></div>
+		<div id="overlay2">Detailed Shading<br>Animated, 3 poses<br><i>Commissioned </i></div>
+		<div id="overlay3">✩</div>
+	</div>
+
+	<div class="art_cap">
+		<a href="https://eime.tumblr.com/post/176790066206/commission-malik-battler" target="_blank">
+		<img src="https://orig00.deviantart.net/b2ef/f/2018/216/c/f/anim___battler_bow2_by_eime_leen-dcj8rj1.gif">
+		<img src="https://orig00.deviantart.net/541f/f/2018/219/2/f/anim___malik_axe_by_eime_leen-dcjj476.gif">
+		</a>
+		<div id="overlay" title="TBA">$--<br><span style="font-size:0.5em;line-height:20px;">(2 chars)</span></div>
+		<div id="overlay2">Detailed Shading<br>Animated, 2 characters, 2 poses each<br><i>Commissioned</i></div>
+		<div id="overlay3">✩</div>
+	</div>
+
+	<div class="art_cap">
+		<a href="https://eime.tumblr.com/post/616869606951387136/commission-iskander-bruiser" target="_blank">
+		<img src="https://66.media.tumblr.com/eb979f48cee13986911455bfd6a808f0/bcf979263706b942-52/s250x400/01dcba741dd1838898ea00ff3dd1d4822dc2cbc8.gifv">
+		<img src="https://66.media.tumblr.com/2820f99367df0c32f33273d8c015c805/bcf979263706b942-d7/s400x600/7a0bd1c3184b676607c6b1254ddcc9c5d85aa047.gifv">
+		</a>
+		<div id="overlay" title="TBA">$--<br><span style="font-size:0.5em;line-height:20px;">(2 chars)</span></div>
+		<div id="overlay2">Detailed Shading<br>Animated, 2 characters, 1 pose each<br><i>Commissioned</i></div>
+		<div id="overlay3">✩</div>
+	</div>
+
+	<div style="clear:both"></div>
+
+	<h2>EXAMPLES - NORMAL</h2>
+
+	<div class="art_cap" id="art_cap2">
+	<a href="https://orig00.deviantart.net/35d7/f/2018/145/b/3/_ad___annabelle_oncadee__oc_sheet__by_eime_leen-dccafhh.png" target="_blank"><img src="https://orig00.deviantart.net/35d7/f/2018/145/b/3/_ad___annabelle_oncadee__oc_sheet__by_eime_leen-dccafhh.png" width="500px"></a>
+
+	<div id="overlay" title="($30+$15)+$7.50">$30</div>
+	<div id="overlay2">Character Reference Sheet (with Simple Vector Graphics)<br>Simple Shading</div>
+	<div id="overlay3">✩</div>
+	</div>
+
+	<div class="art_cap">
+	<a href="https://orig00.deviantart.net/a97c/f/2017/141/d/0/_fehxdr3xndrv3___maki__full_portrait__by_eime_leen-db9x8cn.png" target="_blank"><img src="https://orig00.deviantart.net/a97c/f/2017/141/d/0/_fehxdr3xndrv3___maki__full_portrait__by_eime_leen-db9x8cn.png" height="400px"></a>
+	<div id="overlay" title="$30+$15">$45</div>
+	<div id="overlay2">Full Body<br>Detailed Shading</div>
+	<div id="overlay3">✩</div>
+	</div>
+
+	<div class="art_cap">
+	<a href="https://orig00.deviantart.net/09ad/f/2018/183/d/3/maeko_by_eime_leen-dcg3la8.png"><img src="https://orig00.deviantart.net/09ad/f/2018/183/d/3/maeko_by_eime_leen-dcg3la8.png" width="200px"></a>
+	<div id="overlay" title="$25">$25</div>
+	<div id="overlay2">Thigh Up<br>Simple Shading<br><i>(Does not count as Detailed Background)</i></div>
+	<div id="overlay3">✩</div>
+	</div>
+
+	<div class="art_cap">
+	<a href="https://pre00.deviantart.net/62b2/th/pre/i/2015/051/7/c/kooky__oc__request_by_eime_leen-d8ionyr.png" target="_blank"><img src="https://pre00.deviantart.net/62b2/th/pre/i/2015/051/7/c/kooky__oc__request_by_eime_leen-d8ionyr.png" width="300px"></a>
+	<div id="overlay" title="$30">$30</div>
+	<div id="overlay2">Part human / Part Anthro<br>A <a href="http://fav.me/d8ionyr">request</a> done in 2015.<br><i>(Does not count as Detailed Background)</i></div>
+	<div id="overlay3">✩</div>
+	</div>
+
+	<div class="art_cap">
+	<a href="https://pre00.deviantart.net/7657/th/pre/f/2018/197/6/a/merchant__2015__by_eime_leen-dcg4ow2.png" target="_blank"><img src="https://pre00.deviantart.net/7657/th/pre/f/2018/197/6/a/merchant__2015__by_eime_leen-dcg4ow2.png" width="250px"></a>
+	<div id="overlay" title="$30">$30</div>
+	<div id="overlay2">Non-human / Imaginary<br>Concept Art</div>
+	<div id="overlay3">✩</div>
+	</div>
+
+	<div style="clear:both"></div>
+
+	<h2>COMMISSION INFO</h2>
+	<a id="info"></a>
+
+	<div id="container_art">
+	<b>Payment</b><br>
+	Prices are in USD. Negotiable due to the various add-ons.<br>
+	I ask for payment upfront via PayPal.
+
+	<table cellspacing="4" width="100%"><tr>
+	<td valign="top" colspan="2" style="background-color:rgba(40,120,255,0.5);">
+	<font color="#44C">
+	<b>Prices are currently being re-evaluated. Contact to negotiate.
+	</i></font>
+	</td>
+	</tr></table>
+	<br>
+	<b>Characters</b>
+	<br>
+	There is a limit of two (2) characters per commission. If you want me to draw any more characters, it will count as a separate commission.<br>
+	Currently open to drawing fandom characters and OCs (already existing characters).<br>
+	Please provide references!
+	<br><br>
+	<b>Progress Updates</b>
+	<br>
+	For commissions that take longer to finish, I can use Sta.sh to privately upload progress (previews) of the artwork until completed.
+	<br><br>
+	<b>Refunds</b>
+	<br>
+	Can offer full or partial refund depending on progress (not started, draft, etc.).<br>
+	When refunding, I am not responsible for any PayPal fees, if charged on your end.
+	<br><br>
+	<b>Copyright</b>
+	<br>
+	By commissioning me, you are agreeing to the following terms.<br>
+	<a href="https://eime.tumblr.com/guidelines">Guidelines</a><br><br>
+	The rights of the artwork belong to me (as the independent artist).<br>
+	The commissioner is allowed to use the artwork for personal use non-commercially, and to promote their characters (if OC) and repost the artwork (with artist credit).
+	<br>
+	The commissioner is not allowed to claim the artwork as their own, or sell the commissioned artwork without a written agreement.
+	</div>
+		
+	</div> <!-- DA -->
+
+
+
+	</div> <!-- The_Cont -->
+
+	</div> <!-- content -->
 
 <script>
     
@@ -719,11 +277,11 @@ The commissioner is not allowed to claim the artwork as their own, or sell the c
     var sticky = navbar.offsetTop;
 
     function myFunction() {
-    if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-    } else {
-    navbar.classList.remove("sticky");
-    }
+		if (window.pageYOffset >= sticky) {
+		navbar.classList.add("sticky")
+		} else {
+		navbar.classList.remove("sticky");
+		}
     }
     
 </script>
