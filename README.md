@@ -1,2 +1,2 @@
 # ruby-j.github.io
-Just another website.
+Ruby J Shilan's website and portfolio hosted on github.io.
