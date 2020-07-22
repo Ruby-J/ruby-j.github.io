@@ -20,7 +20,7 @@ html a {
 	text-decoration: none;
 	background-color:rgba(200, 220, 255, 0.20);
 	border-radius: 15px;
-	cursor: url("http://orig11.deviantart.net/4ae0/f/2017/024/b/9/yosaf_av_cursor_by_eime_leen-dawnhw2.png"), auto;
+	cursor: crosshair;
 }
 
 html a:hover {
