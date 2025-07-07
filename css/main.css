@@ -26,7 +26,19 @@ a {
     border-radius: 15px;
     text-decoration: none;
     cursor: crosshair;
+	position: relative;
+    /*display: inline-block;*/
 }
+
+/*a[data-title]:hover::after {
+	content: attr(data-title);
+	position: absolute;
+	top: -100%;
+	left: 0;
+	z-index: 100;
+	background-color: aquamarine;
+	width: 250px;
+}*/
 
 /*
 a:hover {
@@ -181,7 +193,11 @@ table.ido a:hover {
 
 #projects img {
 	border-radius: 5px;
-	border: 2px outset #C6D;
+	border: 2px outset #C8D;
+}
+
+#projects img:hover {
+	border: 2px solid #FDF;
 }
 
 .scroll-container::-webkit-scrollbar {
