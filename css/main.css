@@ -2,7 +2,7 @@ body {
 	background: linear-gradient(#CAD, #949);
 	background-attachment: fixed;
 	color: #555;
-	font-family: Tahoma;
+	font-family: "Quantico", Tahoma;
 	font-size: 0.95em;
 	min-width: 360px;
 	margin-top: 2.5em;
@@ -12,13 +12,14 @@ h1, h2 {
 	text-align: center;
 	text-transform: uppercase;
 	margin: 0;
+	font-family: "Itim", Verdana;
 }
 
 h3 {
 	text-align: center;
 	border-bottom: 2px solid #303;
 	border-radius: 0.2em;
-	background-color:rgba(140, 0, 100, 0.2);
+	background-color:rgba(130, 0, 150, 0.3);
 }
 
 a {
@@ -34,7 +35,7 @@ a:hover {
 }
 */
 
-#sidebar {
+nav {
      background: -webkit-linear-gradient(left, rgba(220, 80, 210, 1.0), rgba(180, 160, 230, 0.7));
      width: 100%;
      height: 2.4em;
@@ -50,7 +51,7 @@ a:hover {
      font-family: "Niramit:200", Tahoma;
 }
 
-.dropdown {
+.link {
 	background-color:rgba(180, 40, 220, 0.8);
 	color: white;
 	padding: 0.45em;
@@ -59,28 +60,27 @@ a:hover {
 	border: 1px solid #DCD;
 	box-shadow: 0px 0px 3px #545;
 	border-radius: 0.5em;
-	width: 60px;
 	float: left;
 	z-index: 14;
 }
     
-#downarrow, #downarrow2 {
+#leftarrow, #leftarrow2 {
 	display: none;
 }
 
-.dropdown:hover {
+.link:hover {
 	background-color:rgba(100, 0, 100, 0.5);
 }
 
-.dropdown:hover .dropdown-content, .dropdown:hover #downarrow, .dropdown:hover #downarrow2 {
+.link:hover .link-content, .link:hover #leftarrow, .link:hover #leftarrow2 {
 	display: block;
 }
 
-.dropdown:hover #uparrow, .dropdown:hover #uparrow2 {
-	display: none;
-}
+/*.link {
+  scroll-margin-top: 50px;
+}*/
 
-.dropdown-content {
+.link-content {
   display: none;
   position: absolute;
   margin: 0.5em 0.5em;
@@ -90,18 +90,18 @@ a:hover {
   border-radius: 0.5em;
 }
 
-.dropdown-content a {
+.link-content a {
   color: #FFF;
   display: block;
   padding: 0.7em 1em;
   float: none;
 }
 
-.dropdown-content a:nth-child(even) {
+.link-content a:nth-child(even) {
 	background-color:rgba(130, 0, 100, 0.70);
 }
 
-.dropdown-content a:hover {
+.link-content a:hover {
 	background-color:rgba(240, 180, 220, 0.70);
 	border-radius: 0.5em;
 }
@@ -143,7 +143,7 @@ table.ido a:hover {
 }
 
 @media screen and (max-width: 481px){
-	.dropdown-content {
+	.link-content {
 		width: 80%;
 		position: fixed;
 		top: 1.25em;
@@ -151,19 +151,46 @@ table.ido a:hover {
 		font-size: 1.0em;
 	}
 	
-	.dropdown {
+	.link {
 	  margin: 0 0.5em;
 	  font-size: 1.3em;
 	}
 }
 
-div.section {
+.scroll-container {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	height: 100vh;
+	overflow-y: scroll;
+	scroll-behavior: smooth;
+}
+.scroll-page {
 	border: 1px outset #DEF;
 	border-radius: 0.5em;
 	background-color:rgba(200, 220, 255, 0.2);
 	margin: 1em auto;
 	padding: 1em;
 	max-width: 1280px;
+}
+
+#about img {
+	border-radius: 5px;
+	border: 2px outset #FCE;
+}
+
+#projects img {
+	border-radius: 5px;
+	border: 2px outset #C6D;
+}
+
+.scroll-container::-webkit-scrollbar {
+	display: none;
+}
+
+.scroll-container {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 
 div.inner {
