@@ -173,9 +173,11 @@ table.ido a:hover {
 	display: block;
 	margin: 0 auto;
 	width: 100%;
-	height: 100vh;
+	height: 92vh;
 	overflow-y: scroll;
-	scroll-behavior: smooth;
+	scroll-behavior: smooth !important;
+	--scroll-behavior: smooth !important;
+	-webkit-scroll-behavior: smooth !important;
 }
 .scroll-page {
 	border: 1px outset #DEF;
