@@ -3,7 +3,7 @@ body {
 	background-attachment: fixed;
 	color: #555;
 	font-family: "Quantico", Tahoma;
-	font-size: 0.95em;
+	font-size: 0.9em;
 	min-width: 360px;
 	margin-top: 2.5em;
 }
@@ -236,4 +236,40 @@ div.imgdiv img {
 div.imgdiv:hover{
 	border: 1px solid #202;
 	background-color:rgba(120, 60, 140, 0.3);
+}
+
+iframe {
+   width: 90%;
+   max-width: 640px;
+}
+
+iframe.vo {
+   height: 40vh;
+   max-height: 400px;
+   display: none;
+}
+
+iframe.pl {
+   height: 40vh;
+   max-height: 360px;
+   max-width: 480px;
+}
+
+#container_res {
+	display: block;
+	background-color:rgba(200, 225, 255, 0.50);
+	border-color: #8BD;
+	border: 6px solid #D7D;
+	border-radius: 15px;
+	margin: 0.4em;
+	padding: 0.2em;
+	background-color:rgba(255, 200, 245, 0.50);
+	font-size: 1.5em;
+	text-align: center;
+	display: block;
+}
+
+#container_res:hover {
+	background-color:rgba(200, 225, 255, 0.90);
+	border-color: #9CE;
 }
