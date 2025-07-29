@@ -17,6 +17,7 @@ h1, h2 {
 
 h3 {
 	text-align: center;
+	color: #DDE;
 	border-bottom: 2px solid #303;
 	border-radius: 0.2em;
 	background-color:rgba(130, 0, 150, 0.3);
@@ -27,25 +28,7 @@ a {
     text-decoration: none;
     cursor: crosshair;
 	position: relative;
-    /*display: inline-block;*/
 }
-
-/*a[data-title]:hover::after {
-	content: attr(data-title);
-	position: absolute;
-	top: -100%;
-	left: 0;
-	z-index: 100;
-	background-color: aquamarine;
-	width: 250px;
-}*/
-
-/*
-a:hover {
-    color: #B7F;
-    background-color:rgba(200, 220, 255, 0.40);
-}
-*/
 
 nav {
      background: -webkit-linear-gradient(left, rgba(220, 80, 210, 1.0), rgba(180, 160, 230, 0.7));
@@ -65,7 +48,7 @@ nav {
 
 .link {
 	background-color:rgba(180, 40, 220, 0.8);
-	color: white;
+	color: #EEF;
 	padding: 0.45em;
 	margin: 0 0.2em;
 	font-size: 1.3em;
@@ -272,4 +255,56 @@ iframe.pl {
 #container_res:hover {
 	background-color:rgba(200, 225, 255, 0.90);
 	border-color: #9CE;
+}
+
+.tooltip, .tooltip2 {
+	position: relative;
+	display: inline-block;
+	font-family: "Quantico", Tahoma;
+}
+
+.tooltip .tooltiptext, .tooltip2 .tooltiptext2 {
+	visibility: hidden;
+	background-color: #949;
+	color: #EEF;
+	text-align: center;
+	width: 110px;
+	border-radius: 6px;
+	padding: 5px;
+	position: absolute;
+	z-index: 9;
+	bottom: 4%;
+	left: 0%;
+	margin-left: -120px;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.tooltip2 .tooltiptext2 {
+	width: 150px;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -84px;
+}
+
+.tooltip .tooltiptext::after, .tooltip2 .tooltiptext2::after {
+	content: "";
+	position: absolute;
+	left: 100%;
+	margin-top: -0.12em;
+	border-width: 10px;
+	border-style: solid;
+	border-color: transparent transparent transparent #A4A;
+}
+
+.tooltip2 .tooltiptext2::after {
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-color: #949 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext, .tooltip2:hover .tooltiptext2 {
+	visibility: visible;
+	opacity: 1;
 }
