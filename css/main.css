@@ -31,19 +31,19 @@ a {
 }
 
 nav {
-     background: -webkit-linear-gradient(left, rgba(220, 80, 210, 1.0), rgba(180, 160, 230, 0.7));
-     width: 100%;
-     height: 2.4em;
-     top: 0em;
-     left: 0em;
-     position: fixed;
-     display: block;
-     padding: 0.1em 0;
-     border: none;
-     z-index: 15;
-     line-height: 16px;
-     font-size: 0.9em;
-     font-family: "Niramit:200", Tahoma;
+	background: -webkit-linear-gradient(left, rgba(220, 80, 210, 1.0), rgba(180, 160, 230, 0.7));
+	width: 100%;
+	height: 2.4em;
+	top: 0em;
+	left: 0em;
+	position: fixed;
+	display: block;
+	padding: 0.1em 0;
+	border: none;
+	z-index: 15;
+	line-height: 16px;
+	font-size: 0.9em;
+	font-family: "Niramit:200", Tahoma;
 }
 
 .link {
@@ -156,7 +156,7 @@ table.ido a:hover {
 	display: block;
 	margin: 0 auto;
 	width: 100%;
-	height: 92vh;
+	height: 93vh;
 	overflow-y: scroll;
 	scroll-behavior: smooth !important;
 	--scroll-behavior: smooth !important;
@@ -294,7 +294,7 @@ iframe.pl {
 	margin-top: -0.12em;
 	border-width: 10px;
 	border-style: solid;
-	border-color: transparent transparent transparent #A4A;
+	border-color: transparent transparent transparent #949;
 }
 
 .tooltip2 .tooltiptext2::after {
